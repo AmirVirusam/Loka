@@ -64,21 +64,6 @@ async def restart(client, m: Message):
 async def help(client, m: Message):
     await m.delete()
     HELP = f"""
-<b>👋 Hallo {m.from_user.mention}!
-
-🛠 MENU BANTUAN
-
-⚡ PERINTAH UNTUK SEMUA ORANG
-• {HNDLR}play [judul lagu | link youtube | balas file audio] - untuk memutar lagu
-• {HNDLR}vplay [judul video | link youtube | balas file video] - untuk memutar video
-• {HNDLR}playlist untuk melihat daftar putar
-• {HNDLR}ping - untuk cek status
-• {HNDLR}help - untuk melihat daftar perintah
-
-⚡ PERINTAH UNTUK SEMUA ADMIN
-• {HNDLR}resume - untuk melanjutkan pemutaran lagu atau video
-• {HNDLR}pause - untuk untuk menjeda pemutaran lagu atau video
-• {HNDLR}skip - untuk melewati lagu atau video
-• {HNDLR}end - untuk mengakhiri pemutaran</b>
+OK
 """
     await m.reply(HELP)

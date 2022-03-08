@@ -26,7 +26,7 @@ async def _human_time_duration(seconds):
         amount, seconds = divmod(int(seconds), div)
         if amount > 0:
             parts.append("{} {}{}".format(amount, unit, "" if amount == 1 else ""))
-    return ", ".join(parts)
+    return " , ".join(parts)
 
 @Client.on_message(filters.command(["ping"], prefixes=f"{HNDLR}"))
 async def ping(client, m: Message):
@@ -38,7 +38,7 @@ async def ping(client, m: Message):
     uptime_sec = (current_time - START_TIME).total_seconds()
     uptime = await _human_time_duration(int(uptime_sec))
     await m_reply.edit(
-        f"<b>⚡ Ping</b> **{delta_ping * 1000:.3f} ms** \n<b>☄ UpTime</b> **-** **{uptime}**"
+        f"<b>⚡ Ping</b> - **{delta_ping * 1000:.3f} ms** \n<b>☄ UpTime</b> **-** **{uptime}**"
     )
 
 @Client.on_message(
@@ -63,7 +63,34 @@ async def restart(client, m: Message):
 @Client.on_message(filters.command(["help"], prefixes=f"{HNDLR}"))
 async def help(client, m: Message):
     await m.delete()
-    HELP = """
-OK
+    HELP = f"""
+<b>🌌 Hi Dear {m.from_user.mention} !
+
+🌠 Welcome To Helper Player !
+
+🛸 Commands !
+
+• {HNDLR}play - [ Reply To Music | Link YouTube | Name Music ] 🏖
+
+• {HNDLR}vplay - [ Reply To Video | Link YouTube | Name Video ] 🍁
+
+• {HNDLR}playlist - To View PlayList 🌱
+
+• {HNDLR}ping - To Check Status 🌟
+
+• {HNDLR}resume - To Continue Playing A Song Or Video 🗼
+
+• {HNDLR}pause - To Pause The PlayBack Of A Song Or Video 🍂
+
+• {HNDLR}skip - To Skip Songs Or Videos 🌿
+
+• {HNDLR}end - To End PlayBack 🪴
+
+• {HNDLR}song - [ Link YouTube | Name Music ] 🍃
+
+• {HNDLR}vsong - [ Link YouTube | Name Music ]🌵 
+
+
+• Developer : @AmirVirusam 👨‍💻</b>
 """
     await m.reply(HELP)

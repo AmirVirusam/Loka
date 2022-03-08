@@ -63,7 +63,7 @@ async def restart(client, m: Message):
 @Client.on_message(filters.command(["help"], prefixes=f"{HNDLR}"))
 async def help(client, m: Message):
     await m.delete()
-    HELP = f"""
+    HELP = """
 OK
 """
     await m.reply(HELP)

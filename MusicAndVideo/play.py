@@ -1,5 +1,4 @@
 import asyncio
-
 from pyrogram import Client, filters
 from pyrogram.types import Message
 from pytgcalls import StreamType
@@ -11,14 +10,11 @@ from pytgcalls.types.input_stream.quality import (
     MediumQualityVideo,
 )
 from youtubesearchpython import VideosSearch
-
 from config import HNDLR, bot, call_py
 from MusicAndVideo.helpers.other.generator.chattitle import CHAT_TITLE
 from MusicAndVideo.helpers.other.generator.thumbnail import gen_thumb
 from MusicAndVideo.helpers.queues import QUEUE, add_to_queue, get_queue
 
-
-# music player
 def ytsearch(query):
     try:
         search = VideosSearch(query, limit=1).result()
@@ -31,7 +27,6 @@ def ytsearch(query):
     except Exception as e:
         print(e)
         return 0
-
 
 async def ytdl(link):
     proc = await asyncio.create_subprocess_exec(
@@ -50,8 +45,6 @@ async def ytdl(link):
     else:
         return 0, stderr.decode()
 
-
-# video player
 def ytsearch(query):
     try:
         search = VideosSearch(query, limit=1).result()
@@ -64,7 +57,6 @@ def ytsearch(query):
     except Exception as e:
         print(e)
         return 0
-
 
 async def ytdl(link):
     proc = await asyncio.create_subprocess_exec(
@@ -82,7 +74,6 @@ async def ytdl(link):
         return 1, stdout.decode().split("\n")[0]
     else:
         return 0, stderr.decode()
-
 
 @Client.on_message(filters.command(["play"], prefixes=f"{HNDLR}"))
 async def play(client, m: Message):
@@ -108,9 +99,10 @@ async def play(client, m: Message):
                 await m.reply_photo(
                     photo="https://telegra.ph/file/d6f92c979ad96b2031cba.png",
                     caption=f"""
-**🎊 Song In Queue Ke #{pos}
+**🎊 Song In Queue Ke __#{pos}__
+
 🔥️ Title : [{songname}]({link})
-💬 Chat ID : {chat_id}
+💬 Chat ID : `{chat_id}`
 🌱 Request From : {m.from_user.mention}**
 """,
                 )
@@ -129,8 +121,9 @@ async def play(client, m: Message):
                     photo="https://telegra.ph/file/6213d2673486beca02967.png",
                     caption=f"""
 **▶ Start Playing Song
+
 🔥 Title : [{songname}]({link})
-💬 Chat ID : {chat_id}
+💬 Chat ID : `{chat_id}`
 🌱 Request From : {m.from_user.mention}**
 """,
                 )
@@ -166,10 +159,11 @@ async def play(client, m: Message):
                         await m.reply_photo(
                             photo=f"{thumb}",
                             caption=f"""
-**🎊 Song In Queue Ke #{pos}
+**🎊 Song In Queue Ke __#{pos}__
+
 🔥 Title : [{songname}]({url})
 ⏱️ Duration : {duration}
-💬 Chat ID : {chat_id}
+💬 Chat ID : `{chat_id}`
 🌱 Request From : {m.from_user.mention}**
 """,
                         )
@@ -189,15 +183,15 @@ async def play(client, m: Message):
                                 photo=f"{thumb}",
                                 caption=f"""
 **▶ Start Playing Song
+
 🔥 Title : [{songname}]({url})
 ⏱️ Duration : {duration}
-💬 Chat ID : {chat_id}
+💬 Chat ID : `{chat_id}`
 🌱 Request From : {m.from_user.mention}**
 """,
                             )
                         except Exception as ep:
                             await huehue.edit(f"`{ep}`")
-
 
 @Client.on_message(filters.command(["vplay"], prefixes=f"{HNDLR}"))
 async def vplay(client, m: Message):
@@ -234,9 +228,10 @@ async def vplay(client, m: Message):
                 await m.reply_photo(
                     photo="https://telegra.ph/file/d6f92c979ad96b2031cba.png",
                     caption=f"""
-**🎊 Video In Queue Ke #{pos}
+**🎊 Video In Queue Ke __#{pos}__
+
 🔥 Title : [{songname}]({link})
-💬 Chat ID : {chat_id}
+💬 Chat ID : `{chat_id}`
 🌱 Request From : {m.from_user.mention}**
 """,
                 )
@@ -259,8 +254,9 @@ async def vplay(client, m: Message):
                     photo="https://telegra.ph/file/6213d2673486beca02967.png",
                     caption=f"""
 **▶ Start Playing Video
+
 🔥 Title : [{songname}]({link})
-💬 Chat ID : {chat_id}
+💬 Chat ID : `{chat_id}`
 🌱 Request From : {m.from_user.mention}**
 """,
                 )
@@ -302,10 +298,11 @@ async def vplay(client, m: Message):
                         await m.reply_photo(
                             photo=f"{thumb}",
                             caption=f"""
-**🎊 Video In Queue Ke #{pos}
+**🎊 Video In Queue Ke __#{pos}__
+
 🔥 Title : [{songname}]({url})
 ⏱️ Duration : {duration}
-💬 Chat ID : {chat_id}
+💬 Chat ID : `{chat_id}`
 🌱 Request From : {m.from_user.mention}**
 """,
                         )
@@ -323,9 +320,10 @@ async def vplay(client, m: Message):
                                 photo=f"{thumb}",
                                 caption=f"""
 **▶ Start Playing Video
+
 🔥 Title : [{songname}]({url})
 ⏱️ Duration : {duration}
-💬 Chat ID : {chat_id}
+💬 Chat ID : `{chat_id}`
 🌱 Request From : {m.from_user.mention}**
 """,
                             )

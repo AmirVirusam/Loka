@@ -18,7 +18,7 @@ async def skip(client, m: Message):
             await m.reply("**⚡Empty Queue, Leaving Voice Chat . . . !**")
         else:
             await m.reply(
-                f"**⏭ Skip Play Back\n🎧 Now Playing** **-** **[{op[0]}]({op[1]})** **|** **{op[2]}** **. . . !**",
+                f"**⏭ Skip PlayBack\n🎧 Now Playing** **-** **[{op[0]}]({op[1]})** **|** **{op[2]}** **. . . !**",
                 disable_web_page_preview=True,
             )
     else:
@@ -47,7 +47,7 @@ async def stop(client, m: Message):
         try:
             await call_py.leave_group_call(chat_id)
             clear_queue(chat_id)
-            await m.reply("**✅ End PlayBack . . . !**")
+            await m.reply("**✅ Playback Stopped . . . !**")
         except Exception as e:
             await m.reply(f"**ERROR** \n`{e}`")
     else:
@@ -62,7 +62,7 @@ async def pause(client, m: Message):
         try:
             await call_py.pause_stream(chat_id)
             await m.reply(
-                f"**⏸ Play Back Is Paused !**\n\n**• To Resume Play Back, Use The Command »** `{HNDLR}resume`"
+                f"**⏸ PlayBack Is Paused !**\n\n**• To Resume PlayBack, Use The Command »** `{HNDLR}resume`"
             )
         except Exception as e:
             await m.reply(f"**ERROR** \n`{e}`")
@@ -78,7 +78,7 @@ async def resume(client, m: Message):
         try:
             await call_py.resume_stream(chat_id)
             await m.reply(
-                f"**▶ Resume Paused Play Back**\n\n**• To Pause Play Back, Use The Command »** `{HNDLR}pause`**"
+                f"**▶ Resume Paused PlayBack**\n\n**• To Pause PlayBack, Use The Command »** `{HNDLR}pause`**"
             )
         except Exception as e:
             await m.reply(f"**ERROR** \n`{e}`")

@@ -2,18 +2,15 @@ import os
 import sys
 from datetime import datetime
 from time import time
-
 from pyrogram import Client, filters
 from pyrogram.types import Message
-
 from config import HNDLR, SUDO_USERS
 
-# System Uptime
 START_TIME = datetime.utcnow()
 TIME_DURATION_UNITS = (
-    ("Year", 60 * 60 * 24 * 7),
-    ("Week", 60 * 60 * 24),
-    ("Day", 60 * 60),
+    ("Week", 60 * 60 * 24 * 7),
+    ("Day", 60 * 60 * 24),
+    ("Hour", 60 * 60),
     ("Minutes", 60),
     ("Seconds", 1),
 )

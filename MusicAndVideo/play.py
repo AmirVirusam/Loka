@@ -91,7 +91,7 @@ async def play(client, m: Message):
                 else:
                     songname = replied.audio.file_name[:35] + " ..."
             elif replied.voice:
-                songname = "Voice Note"
+                songname = "Voice Note . . . !"
             if chat_id in QUEUE:
                 pos = add_to_queue(chat_id, songname, dl, link, "Audio", 0)
                 await huehue.delete()
@@ -217,9 +217,9 @@ async def vplay(client, m: Message):
                     )
 
             if replied.video:
-                songname = replied.video.file_name[:35] + " ..."
+                songname = "Video Note . . . !"
             elif replied.document:
-                songname = replied.document.file_name[:35] + " ..."
+                songname = "Video Note . . . !"
 
             if chat_id in QUEUE:
                 pos = add_to_queue(chat_id, songname, dl, link, "Video", Q)

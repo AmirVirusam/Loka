@@ -87,9 +87,9 @@ async def play(client, m: Message):
             link = replied.link
             if replied.audio:
                 if replied.audio.title:
-                    songname = replied.audio.title[:35] + "..."
+                    songname = replied.audio.title[:35] + " ..."
                 else:
-                    songname = replied.audio.file_name[:35] + "..."
+                    songname = replied.audio.file_name[:35] + " ..."
             elif replied.voice:
                 songname = "Voice Note"
             if chat_id in QUEUE:
@@ -217,9 +217,9 @@ async def vplay(client, m: Message):
                     )
 
             if replied.video:
-                songname = replied.video.file_name[:35] + "..."
+                songname = replied.video.file_name[:35] + " ..."
             elif replied.document:
-                songname = replied.document.file_name[:35] + "..."
+                songname = replied.document.file_name[:35] + " ..."
 
             if chat_id in QUEUE:
                 pos = add_to_queue(chat_id, songname, dl, link, "Video", Q)

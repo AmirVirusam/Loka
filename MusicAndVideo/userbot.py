@@ -11,8 +11,8 @@ TIME_DURATION_UNITS = (
     ("Week", 60 * 60 * 24 * 7),
     ("Day", 60 * 60 * 24),
     ("Hour", 60 * 60),
-    ("Minutes", 60),
-    ("Seconds", 1),
+    ("Minute", 60),
+    ("Second", 1),
 )
 
 async def _human_time_duration(seconds):
